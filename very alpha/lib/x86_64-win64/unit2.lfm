@@ -1,0 +1,17 @@
+object Form2: TForm2
+  Left = 462
+  Height = 448
+  Top = 245
+  Width = 513
+  Caption = 'Form2'
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '1.6.4.0'
+  object MainMenu1: TMainMenu
+    left = 39
+    top = 16
+    object MenuItem2: TMenuItem
+      Caption = 'New Item2'
+    end
+  end
+end
