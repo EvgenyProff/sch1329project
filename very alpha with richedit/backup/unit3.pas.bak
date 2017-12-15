@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ActnList,
-  StdCtrls, ComCtrls, ExtCtrls, Buttons, Spin, RichMemo, Types;
+  StdCtrls, ComCtrls, ExtCtrls, Buttons, RichMemo, Spin, Types;
 
 type
 
@@ -23,7 +23,6 @@ type
     PageControl1: TPageControl;
     Panel1: TPanel;
     RichMemo1: TRichMemo;
-    RichMemo2: TRichMemo;
     SpinEdit1: TSpinEdit;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
@@ -39,10 +38,9 @@ type
     procedure GroupBox1Click(Sender: TObject);
 
     procedure PageControl1Change(Sender: TObject);
+    procedure RichMemo1Change(Sender: TObject);
     procedure RichMemo2Change(Sender: TObject);
     procedure SpinEdit1Change(Sender: TObject);
-    procedure TabSheet1ContextPopup(Sender: TObject; MousePos: TPoint;
-      var Handled: Boolean);
   private
     { private declarations }
   public
@@ -95,7 +93,7 @@ var
   sf : tfont;
 begin
           sf := richmemo1.font;
-          if sf.Underline = true then sf.underline := false;
+          if sf.Underline = true then sf.underline := false
           else sf.underline := true;
   richmemo1.SetTextAttributes(richmemo1.SelStart, richmemo1.SelLength, sf);
 
@@ -106,6 +104,7 @@ var
   sf : tfont;
 begin
           sf := richmemo1.font;
+          sf.Name:=combobox1.Text;
   richmemo1.SetTextAttributes(richmemo1.SelStart, richmemo1.SelLength, sf);
 
 end;
@@ -116,11 +115,17 @@ begin
 end;
 
 procedure TForm3.Edit1Enter(Sender: TObject);
+var
+  FileName: string;
 begin
-  assignfile(tf, GetCurrentDir() + '\Уроки\Урок1.txt');
-  append(tf);
-  write(tf, edit1.caption);
-  closefile(tf);
+  {assignfile(tf, GetCurrentDir() + '\Уроки\1.txt');
+  fileName:=ExtractFileName(tf);
+  if fileExists(filename) then
+    append(tf)
+  else
+    rewrite(tf); //Append не подходит, т.к. работает  только с существующим файлом
+  writeln(tf, edit1.caption);
+  closefile(tf); }
 end;
 
 
@@ -130,7 +135,7 @@ end;
 
 procedure TForm3.FormCreate(Sender: TObject);
 begin
-
+  Combobox1.Items:=Screen.Fonts;
 end;
 
 procedure TForm3.GroupBox1Click(Sender: TObject);
@@ -145,6 +150,11 @@ end;
 
 
 procedure TForm3.PageControl1Change(Sender: TObject);
+begin
+
+end;
+
+procedure TForm3.RichMemo1Change(Sender: TObject);
 begin
 
 end;

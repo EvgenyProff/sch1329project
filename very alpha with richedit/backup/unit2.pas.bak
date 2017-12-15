@@ -15,6 +15,7 @@ type
     MainMenu1: TMainMenu;
     MenuItem2: TMenuItem;
     procedure FormCreate(Sender: TObject);
+    procedure Mainmenu1Items1Click(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
@@ -25,18 +26,31 @@ type
     { public declarations }
   end;
 
-  procedure DynamoCreate(CountLines : integer; fnames : array of string);
+//процедура, которая описывает поведение меню при нажатии
+procedure MenuEvent(Self: TObject; Sender: TObject);
+procedure DynamoCreate(CountLines : integer; fnames : array of string; TeachOrPupl:boolean);
+  //дополнительный признак TeachOrPupl = True - УЧИТЕЛЬ, иначе - УЧЕНИК
 
   //type lessons(string:name, string:task, string:theory, string:stat);
 
 var
   Form2: TForm2;
+  IndexMenu: array[0..2] of Boolean;
 
 implementation
 
 {$R *.lfm}
 
 { TForm2 }
+
+procedure MenuEvent(Self: TObject; Sender: TObject);
+begin
+   if indexMenu[1] = TRUE THEN
+     begin
+       form3.show;
+       form2.Hide;
+     end;
+end;
 
 procedure TForm2.FormCreate(Sender: TObject);
 begin
@@ -46,6 +60,7 @@ end;
 procedure TForm2.MenuItem1Click(Sender: TObject);
 begin
      //ls(tmenuitem.IndexOf());
+   form3.show;
 end;
 
 procedure TForm2.MenuItem2Click(Sender: TObject);
@@ -58,47 +73,68 @@ begin
 
 end;
 
+procedure TForm2.Mainmenu1Items1Click(Sender: TObject);
+begin
+   form3.Show;
+end;
+
 procedure TForm2.MenuItem5Click(Sender: TObject);
 begin
   //show from to check answers
 end;
 
-procedure DynamoCreate(CountLines : integer; fnames : array of string);
+procedure DynamoCreate(CountLines : integer; fnames : array of string; TeachOrPupl:boolean);
 var
   items_count : integer;
   i1 : integer;
   sub1 : TMenuItem;
   sub2 : TmenuItem;
   sub3 : TMenuItem;
-  lf : textfile;
+  lf : TextFile;
   add : string;
+  method: TMethod;
 begin
+   add:='';
    i1 := -1;
    items_count := 0;
    if CountLines = 0 then showmessage('Нет ни одного урока для изучения.'+#13#10+'Обратитесь к учителю')
    else
    Form2.hide;
-
-          for i1 := i1 + 1 to CountLines - 1 do
-          begin
-          assignfile(lf, GetCurrentDir() + '\Уроки\' + fnames[i1]);
-          sub1 := TMenuItem.create(Form2.MainMenu1);
-          sub2 := TMenuItem.create(Form2.MainMenu1);
-          sub3 := TMenuItem.create(Form2.MainMenu1);
-          read(lf, add);
-          sub1.Caption := add;
-          read(lf, add);
-          sub2.caption :=     add;
-          read(lf, add);
-          sub3.caption :=add;
-
-
-          Form2.Mainmenu1.Items[0].add(sub1);
-          form2.mainmenu1.items[0].items[items_count].add(sub2);
-          form2.mainmenu1.items[0].items[items_count].add(sub3);
-          inc(items_count);
-          end;
-          Form2.show;
+   for i1 := i1 + 1 to CountLines - 1 do
+   begin
+   assignfile(lf, GetCurrentDir() + '\Уроки\' + fnames[i1]);
+   reset(lf);
+   // динамическое создание меню, в зависимости от того, под кем зашел человек под учеником или учителем
+   sub1 := TMenuItem.create(Form2.MainMenu1);
+   sub2 := TMenuItem.create(Form2.MainMenu1);
+   sub3 := TMenuItem.create(Form2.MainMenu1);
+   if not EOF (lf) then
+   begin
+     readln(lf, add);
+     sub1.Caption := add;
+     readln(lf, add);
+     sub2.caption := add;
+     readln(lf, add);
+     sub3.caption :=add;
+     Form2.Mainmenu1.Items[0].add(sub1);
+     form2.mainmenu1.items[0].items[items_count].add(sub2);
+     form2.mainmenu1.items[0].items[items_count].add(sub3);
+     inc(items_count);
+   end
+   else
+     showMessage('Файл '+ fnames[i1]+' ПУСТ'); //добавить сюда какую-то реакцию, например удалить файл или отредактировать
+   end;
+   if TeachOrPupl = True then
+   begin
+     sub1:= TMenuItem.create(Form2.MainMenu1);
+     sub1.Caption:='Создать урок';
+     Form2.Mainmenu1.Items.Insert(1,sub1);
+   end;
+   Form2.show;
+   method.Code := @MenuEvent;
+   method.Data := nil;
+   IndexMenu[1]:=True;
+   Form2.Mainmenu1.Items[1].OnClick:= TNotifyEvent(method);
 end;
 
 end.

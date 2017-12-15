@@ -1,11 +1,11 @@
 object Form3: TForm3
-  Left = 451
+  Left = 391
   Height = 494
-  Top = 127
-  Width = 709
+  Top = 159
+  Width = 712
   Caption = 'Lesson editor'
   ClientHeight = 494
-  ClientWidth = 709
+  ClientWidth = 712
   OnCreate = FormCreate
   LCLVersion = '1.6.4.0'
   object PageControl1: TPageControl
@@ -21,7 +21,6 @@ object Form3: TForm3
       Caption = 'Теория'
       ClientHeight = 343
       ClientWidth = 702
-      OnContextPopup = TabSheet1ContextPopup
       object RichMemo1: TRichMemo
         Left = -4
         Height = 296
@@ -31,33 +30,13 @@ object Form3: TForm3
         Lines.Strings = (
           'RichMemo1'
         )
+        OnChange = RichMemo1Change
         TabOrder = 0
         ZoomFactor = 1
       end
     end
     object TabSheet2: TTabSheet
       Caption = 'Практика'
-      ClientHeight = 343
-      ClientWidth = 702
-      object RichMemo2: TRichMemo
-        Left = -4
-        Height = 295
-        Top = 48
-        Width = 709
-        Font.CharSet = RUSSIAN_CHARSET
-        Font.Height = -20
-        Font.Name = 'Times New Roman'
-        Font.Pitch = fpVariable
-        Font.Quality = fqDraft
-        HideSelection = False
-        Lines.Strings = (
-          'RichMemo2'
-        )
-        OnChange = RichMemo2Change
-        ParentFont = False
-        TabOrder = 0
-        ZoomFactor = 1
-      end
     end
   end
   object Edit1: TEdit

@@ -6,27 +6,34 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, Unit2, unit3;
+  ExtCtrls, Buttons, Unit2, unit3;
 
 type
 
   { TForm1 }
 
   TForm1 = class(TForm)
-    Button1: TButton;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
     Button2: TButton;
+    Image1: TImage;
+    Label1: TLabel;
     Memo1: TMemo;
     RadioGroup1: TRadioGroup;
-    procedure Button1Click(Sender: TObject);
+    Timer1: TTimer;
+    procedure BitBtn2Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
     procedure Memo1Change(Sender: TObject);
     procedure RadioButton1Change(Sender: TObject);
     procedure RadioGroup1Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
     { private declarations }
   public
     { public declarations }
+
   end;
 procedure ScanDir(FilePath:String);
 
@@ -41,10 +48,9 @@ implementation
 
 { TForm1 }
 
-
-procedure TForm1.Button1Click(Sender: TObject);
-    begin
-      showmessage('created by... Moscow 2017');
+procedure TForm1.BitBtn2Click(Sender: TObject);
+begin
+   showmessage('created by... Moscow 2017');
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
@@ -59,7 +65,7 @@ procedure ScanDir(FilePath : String);
 
 begin
   FilePath := IncludeTrailingPathDelimiter(FilePath);
-  Attr := faAnyFile - faVolumeID - faDirectory;
+  Attr := faAnyFile - faDirectory;
   try
     if FindFirst(FilePath + '*', Attr, Sr) = 0 then
     repeat
@@ -72,6 +78,11 @@ end;
 procedure TForm1.FormShow(Sender: TObject);
 begin
   ScanDir(GetCurrentDir() + '\Уроки');
+end;
+
+procedure TForm1.Image1Click(Sender: TObject);
+begin
+
 end;
 
 procedure TForm1.Memo1Change(Sender: TObject);
@@ -89,6 +100,7 @@ var
    names : array[0..200] of string;
    i : integer;
    c : integer;
+   teach: boolean;
 begin
   c := memo1.lines.count;
   c := c - 1;
@@ -98,15 +110,23 @@ begin
      names[i] := memo1.lines[i];
      i := i + 1;
      end;
+  if radiogroup1.itemindex = 0 then
+    teach := True;
   form1.hide;
-       Form2.show;
-       DynamoCreate(Memo1.Lines.Count, names);
-     if radiogroup1.itemindex = 2 then
+  Form2.show;
+  DynamoCreate(Memo1.Lines.Count, names, Teach);
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+// запускаем формочку раскрываться по таймеру, сделали простейшую анимацию
+  if form1.width < image1.Width then
      begin
-     form3.Show;
-
-     end;
-
+       form1.Width:=form1.Width+5;
+       form1.Height:=form1.Height+5;
+     end
+  else
+    timer1.Enabled:=false;
 end;
 
 
