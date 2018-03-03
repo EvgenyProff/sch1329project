@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\lazarus\fpc\3.0.2\bin\i386-win32\fpc.exe" Date="1247517510"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -WG -l -vewnhibq &quot;-FiC:\Users\1\Desktop\Новая папка\delphi\Проект\sch1329project-0.1\very alpha with richedit\backup\lib\i386-win32&quot; &quot;-FuC:\Users\1\Desktop\Новая папка\delphi\Проект\sch1329project-0.1\richmemo\lib\i386-win32&quot; -FuC:\lazarus\components\ideintf\units\i386-win32\win32 -FuC:\lazarus\components\lazcontrols\lib\i386-win32\win32 -FuC:\lazarus\lcl\units\i386-win32\win32 -FuC:\lazarus\lcl\units\i386-win32 -FuC:\lazarus\components\lazutils\lib\i386-win32 -FuC:\lazarus\packager\units\i386-win32 &quot;-FuC:\Users\1\Desktop\Новая папка\delphi\Проект\sch1329project-0.1\very alpha with richedit\backup\&quot; &quot;-FUC:\Users\1\Desktop\Новая папка\delphi\Проект\sch1329project-0.1\very alpha with richedit\backup\lib\i386-win32\&quot; -dLCL -dLCLwin32 project1.lpr"/>
+  <Complete Value="False"/>
+</CONFIG>

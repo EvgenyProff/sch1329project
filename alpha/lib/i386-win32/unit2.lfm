@@ -1,0 +1,16 @@
+object Form2: TForm2
+  Left = 483
+  Height = 521
+  Top = 135
+  Width = 513
+  Caption = 'Form2'
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '1.6.4.0'
+  object MainMenu1: TMainMenu
+    object MenuItem2: TMenuItem
+      Caption = 'Уроки'
+      OnClick = MenuItem2Click
+    end
+  end
+end
