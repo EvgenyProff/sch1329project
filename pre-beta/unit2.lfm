@@ -1,0 +1,24 @@
+object Form2: TForm2
+  Left = 922
+  Height = 521
+  Top = 235
+  Width = 513
+  Caption = 'Form2'
+  DesignTimePPI = 144
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '1.8.2.0'
+  object MainMenu1: TMainMenu
+    left = 8
+    object MenuItem2: TMenuItem
+      Caption = 'Уроки'
+      OnClick = MenuItem2Click
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    FileName = 'C:\Ученики\Бортников\sch1329project-master\very alpha with richedit\project1.lpi.bak'
+    InitialDir = 'C:\Ученики\Бортников\sch1329project-master\very alpha with richedit\'
+    left = 65
+    top = 194
+  end
+end

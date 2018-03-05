@@ -1,0 +1,57 @@
+object Form4: TForm4
+  Left = 875
+  Height = 745
+  Top = 596
+  Width = 927
+  Caption = 'Form4'
+  ClientHeight = 745
+  ClientWidth = 927
+  DesignTimePPI = 144
+  OnShow = FormShow
+  LCLVersion = '1.8.2.0'
+  object StaticText1: TStaticText
+    Left = 0
+    Height = 208
+    Top = 48
+    Width = 1144
+    Caption = 'Теория: '
+    TabOrder = 0
+  end
+  object StaticText2: TStaticText
+    Left = -4
+    Height = 48
+    Top = 0
+    Width = 1147
+    OnClick = StaticText2Click
+    TabOrder = 1
+  end
+  object StaticText3: TStaticText
+    Left = 0
+    Height = 208
+    Top = 256
+    Width = 1145
+    Caption = 'Задачи: '
+    TabOrder = 2
+  end
+  object RichMemo1: TRichMemo
+    Left = 0
+    Height = 201
+    Top = 464
+    Width = 1147
+    HideSelection = False
+    Lines.Strings = (
+      'RichMemo1'
+    )
+    TabOrder = 3
+    ZoomFactor = 1
+  end
+  object Button1: TButton
+    Left = 216
+    Height = 34
+    Top = 688
+    Width = 460
+    Caption = 'Проверить ответы'
+    OnClick = Button1Click
+    TabOrder = 4
+  end
+end

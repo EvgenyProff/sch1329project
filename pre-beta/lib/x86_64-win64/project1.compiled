@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\Users\genja\lazarus\fpc\3.0.4\bin\x86_64-win64\fpc.exe" Date="1280923943"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -WG -l -vewnhibq -FuC:\Users\genja\lazarus\examples\xmlresource\lib\x86_64-win64 -FuC:\Users\genja\Desktop\sch1329project-master\richmemo\lib\x86_64-win64 -FuC:\Users\genja\lazarus\components\ideintf\units\x86_64-win64\win32 -FuC:\Users\genja\lazarus\components\lazcontrols\lib\x86_64-win64\win32 -FuC:\Users\genja\lazarus\lcl\units\x86_64-win64\win32 -FuC:\Users\genja\lazarus\lcl\units\x86_64-win64 -FuC:\Users\genja\lazarus\components\codetools\units\x86_64-win64 -FuC:\Users\genja\lazarus\components\lazutils\lib\x86_64-win64 -FuC:\Users\genja\lazarus\packager\units\x86_64-win64 -FuC:\Users\genja\Desktop\sch1329project-master\alpha\ -FUC:\Users\genja\Desktop\sch1329project-master\alpha\lib\x86_64-win64\ -dLCL -dLCLwin32 project1.lpr"/>
+  <Complete Value="False"/>
+</CONFIG>
