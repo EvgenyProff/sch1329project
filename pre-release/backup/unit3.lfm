@@ -1,0 +1,23 @@
+object Form3: TForm3
+  Left = 595
+  Height = 643
+  Top = 197
+  Width = 735
+  Caption = 'Form3'
+  ClientHeight = 643
+  ClientWidth = 735
+  DesignTimePPI = 144
+  LCLVersion = '1.8.2.0'
+  object RichMemo1: TRichMemo
+    Left = 0
+    Height = 70
+    Top = 0
+    Width = 735
+    HideSelection = False
+    Lines.Strings = (
+      'RichMemo1'
+    )
+    TabOrder = 0
+    ZoomFactor = 1
+  end
+end
