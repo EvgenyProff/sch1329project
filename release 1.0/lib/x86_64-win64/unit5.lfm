@@ -1,0 +1,9 @@
+object Form5: TForm5
+  Left = 84
+  Height = 360
+  Top = 474
+  Width = 480
+  Caption = 'Form5'
+  DesignTimePPI = 144
+  LCLVersion = '1.8.2.0'
+end

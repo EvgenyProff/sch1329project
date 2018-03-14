@@ -1,0 +1,58 @@
+object Form3: TForm3
+  Left = 241
+  Height = 444
+  Top = 283
+  Width = 735
+  Caption = 'Form3'
+  ClientHeight = 444
+  ClientWidth = 735
+  DesignTimePPI = 144
+  LCLVersion = '1.8.2.0'
+  object RichMemo1: TRichMemo
+    Left = 0
+    Height = 70
+    Top = 0
+    Width = 735
+    HideSelection = False
+    Lines.Strings = (
+      'Название вашего урока'
+    )
+    OnChange = RichMemo1Change
+    TabOrder = 0
+    ZoomFactor = 1
+  end
+  object TabControl1: TTabControl
+    Left = 0
+    Height = 579
+    Top = 64
+    Width = 742
+    OnChange = TabControl1Change
+    TabIndex = 1
+    Tabs.Strings = (
+      'Теория'
+      'Задачи'
+      'Ответы'
+    )
+    TabOrder = 1
+    object RichMemo2: TRichMemo
+      Left = 0
+      Height = 290
+      Top = 32
+      Width = 736
+      HideSelection = False
+      Lines.Strings = (
+        'Помните! Каждый ответ - на отдельной строке.'
+      )
+      TabOrder = 1
+      ZoomFactor = 1
+    end
+    object BitBtn1: TBitBtn
+      Left = 152
+      Height = 33
+      Top = 336
+      Width = 395
+      Caption = 'Создать урок'
+      TabOrder = 2
+    end
+  end
+end
