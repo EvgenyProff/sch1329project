@@ -1,0 +1,20 @@
+object pic: Tpic
+  Left = 363
+  Height = 152
+  Top = 152
+  Width = 176
+  Anchors = [akLeft]
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Изображение к вопросу'
+  ClientHeight = 152
+  ClientWidth = 176
+  LCLVersion = '1.6.4.0'
+  object Image1: TImage
+    Left = 0
+    Height = 152
+    Top = 0
+    Width = 174
+    AutoSize = True
+  end
+end

@@ -1,0 +1,81 @@
+object f1: Tf1
+  Left = 14
+  Height = 114
+  Top = 157
+  Width = 451
+  Anchors = []
+  AutoSize = True
+  Caption = 'программа-тренажер по иностранному языку'
+  ClientHeight = 114
+  ClientWidth = 451
+  OnHide = FormHide
+  OnShow = FormShow
+  LCLVersion = '1.6.4.0'
+  object back: TBitBtn
+    AnchorSideTop.Control = questions
+    AnchorSideTop.Side = asrBottom
+    Left = 14
+    Height = 30
+    Top = 60
+    Width = 75
+    Caption = 'back'
+    OnClick = backClick
+    TabOrder = 0
+  end
+  object forward: TBitBtn
+    AnchorSideLeft.Control = back
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = questions
+    AnchorSideTop.Side = asrBottom
+    Left = 89
+    Height = 30
+    Top = 60
+    Width = 75
+    Caption = 'forward'
+    OnClick = forwardClick
+    TabOrder = 1
+  end
+  object Progress: TProgressBar
+    Left = 14
+    Height = 34
+    Top = 10
+    Width = 426
+    TabOrder = 2
+    BarShowText = True
+  end
+  object questions: TRadioGroup
+    Left = 14
+    Height = 4
+    Top = 56
+    Width = 19
+    AutoFill = True
+    AutoSize = True
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    OnClick = questionsClick
+    TabOrder = 3
+  end
+  object save: TBitBtn
+    AnchorSideLeft.Control = forward
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = questions
+    AnchorSideTop.Side = asrBottom
+    Left = 164
+    Height = 30
+    Top = 60
+    Width = 75
+    Caption = 'save'
+    OnClick = saveClick
+    TabOrder = 4
+    Visible = False
+  end
+  object od1: TOpenDialog
+    left = 776
+    top = 15
+  end
+end
